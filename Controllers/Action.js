@@ -1,7 +1,6 @@
-var http = require('http'); 
 var querystring = require('querystring'); 
 var url = require('url');
-var common = require('./common');
+var common = require('../common');
 
 function initRoute(app)
 {
