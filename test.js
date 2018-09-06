@@ -9,10 +9,13 @@ var options = {
 
 function start(app)
 {
-    https.createServer(options, app).listen(3000);
-
+    https.createServer(options, app).on('connection', function(socket){
+        console.log("A new connection was made by a client.");
+        socket.setTimeout(30 * 1000);
+    }).listen(3000);
     var host = "127.0.0.1";
     var port = "3000";
+
     // 终端打印如下信息
     console.log('Server running at http://%s:%s/',host, port);
 }

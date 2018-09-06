@@ -1,10 +1,9 @@
 var express = require('express'); // 项目服务端使用express框架
-var controller = require('./Controllers/Action');
+var controller = require('./Controllers/Action_Test');
 var server = require("./test");
 // var route = require("./route");
 
 var app = express();
-
 app.all("*", function(req, res, next){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -12,7 +11,9 @@ app.all("*", function(req, res, next){
     res.header("Content-Type", "application/json;charset=utf-8");
     if (req.method == 'OPTIONS') {
         // 让options请求快速返回
-        res.end(200); 
+        res.header("Access-Control-Allow-Headers", "content-type");
+        res.statusCode = 204;
+        res.end(); 
     }
     else {
         next();
