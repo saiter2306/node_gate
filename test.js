@@ -17,7 +17,7 @@ function start(app)
     var port = "3000";
 
     // 终端打印如下信息
-    console.log('Server running at http://%s:%s/',host, port);
+    console.log('Server running at https://%s:%s/',host, port);
 }
 
 exports.start = start;

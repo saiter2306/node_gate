@@ -13,9 +13,9 @@ function SendRequest(url, method, request, response, sendCallback)
 
         if (method = 'post')
         {
-            options.headers = {
+                options.headers = {
                 'Content-Type':'application/x-www-form-urlencoded',
-                'Content-Length':data.length
+                'Content-Length':Buffer.byteLength(data)
             }
         }
 
@@ -38,7 +38,7 @@ function SendRequest(url, method, request, response, sendCallback)
             console.log('problem with request: ' + e.message);
         });
     
-        req.write(data);
+        req.write(data,'utf-8');
         req.end();
     });
 }
