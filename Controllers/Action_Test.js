@@ -1,7 +1,7 @@
 // -------------------------------------------------------
 // Copyright (C) SharpEngineNode 版权所有。
 // 文 件 名：node_gate/Controllers/Action.js
-// 创建标识：2018/9/6 16:56:15 Created by Gyc
+// 创建标识：2018/9/10 15:52:29 Created by Gyc
 // 功能说明：
 // 注意事项：
 // 
@@ -214,8 +214,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetPhoneCheckCode
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetPhoneCheckCode/:Phone/:CheckExist', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2001&" +"Phone=" + req.params.Phone + "&"+"CheckExist=" + req.params.CheckExist + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetPhoneCheckCode/:Phone', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2001&" +"Phone=" + req.params.Phone + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -234,8 +234,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/PhonePwdRegister
      * @apiVersion 1.0.0
      */
-    app.get('/api/PhonePwdRegister/:Phone/:CheckCode/:Pwd/:Recommend', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2002&" +"Phone=" + req.params.Phone + "&"+"CheckCode=" + req.params.CheckCode + "&"+"Pwd=" + req.params.Pwd + "&"+"Recommend=" + req.params.Recommend + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/PhonePwdRegister/:Phone/:CheckCode/:Pwd', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2002&" +"Phone=" + req.params.Phone + "&"+"CheckCode=" + req.params.CheckCode + "&"+"Pwd=" + req.params.Pwd + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -253,8 +253,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/PhoneCheckCodeLogin
      * @apiVersion 1.0.0
      */
-    app.get('/api/PhoneCheckCodeLogin/:Phone/:CheckCode/:Recommend', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2003&" +"Phone=" + req.params.Phone + "&"+"CheckCode=" + req.params.CheckCode + "&"+"Recommend=" + req.params.Recommend + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/PhoneCheckCodeLogin/:Phone/:CheckCode', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2003&" +"Phone=" + req.params.Phone + "&"+"CheckCode=" + req.params.CheckCode + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -326,8 +326,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/BindPhone
      * @apiVersion 1.0.0
      */
-    app.get('/api/BindPhone/:Phone/:CheckCode/:Force', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2007&" +"Phone=" + req.params.Phone + "&"+"CheckCode=" + req.params.CheckCode + "&"+"Force=" + req.params.Force + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/BindPhone/:Phone/:CheckCode', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2007&" +"Phone=" + req.params.Phone + "&"+"CheckCode=" + req.params.CheckCode + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -365,8 +365,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/AddAddress
      * @apiVersion 1.0.0
      */
-    app.get('/api/AddAddress/:Name/:Phone/:Address/:Code/:City/:SetDefault', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2009&" +"Name=" + req.params.Name + "&"+"Phone=" + req.params.Phone + "&"+"Address=" + req.params.Address + "&"+"Code=" + req.params.Code + "&"+"City=" + req.params.City + "&"+"SetDefault=" + req.params.SetDefault + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/AddAddress/:Name/:Phone/:Address/:Code/:City', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2009&" +"Name=" + req.params.Name + "&"+"Phone=" + req.params.Phone + "&"+"Address=" + req.params.Address + "&"+"Code=" + req.params.Code + "&"+"City=" + req.params.City + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -598,8 +598,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetRecomment
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetRecomment/:UserId', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2023&" +"UserId=" + req.params.UserId + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetRecomment', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2023&"  + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -710,8 +710,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetBillDetail
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetBillDetail/:pi/:Type', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2029&" +"pi=" + req.params.pi + "&"+"Type=" + req.params.Type + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetBillDetail/:pi', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2029&" +"pi=" + req.params.pi + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -728,8 +728,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetTransferDetail
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetTransferDetail/:pi/:Type', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2030&" +"pi=" + req.params.pi + "&"+"Type=" + req.params.Type + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetTransferDetail/:pi', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2030&" +"pi=" + req.params.pi + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -987,8 +987,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetBillDetailV2
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetBillDetailV2/:pi/:MoneyType/:BillType/:ActionType', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2045&" +"pi=" + req.params.pi + "&"+"MoneyType=" + req.params.MoneyType + "&"+"BillType=" + req.params.BillType + "&"+"ActionType=" + req.params.ActionType + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetBillDetailV2/:pi', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2045&" +"pi=" + req.params.pi + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -1088,8 +1088,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetUserShop
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetUserShop/:UserId', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2100&" +"UserId=" + req.params.UserId + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetUserShop', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2100&"  + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -1190,8 +1190,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetUserShopSharePage
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetUserShopSharePage/:pi/:UserId', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2106&" +"pi=" + req.params.pi + "&"+"UserId=" + req.params.UserId + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetUserShopSharePage/:pi', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2106&" +"pi=" + req.params.pi + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -1312,8 +1312,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/GetShareDetail
      * @apiVersion 1.0.0
      */
-    app.get('/api/GetShareDetail/:shareId/:pi/:HasLike', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=2113&" +"shareId=" + req.params.shareId + "&"+"pi=" + req.params.pi + "&"+"HasLike=" + req.params.HasLike + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/GetShareDetail/:shareId/:pi', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=2113&" +"shareId=" + req.params.shareId + "&"+"pi=" + req.params.pi + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
@@ -1794,8 +1794,8 @@ function initRoute(app)
      * @apiSampleRequest http://localhost:3000/api/QuickConfirmOrder
      * @apiVersion 1.0.0
      */
-    app.get('/api/QuickConfirmOrder/:OrderId/:QuickCode/:skuId', function (req, res) {
-        var requestUrl = encodeURI("/?actionid=4013&" +"OrderId=" + req.params.OrderId + "&"+"QuickCode=" + req.params.QuickCode + "&"+"skuId=" + req.params.skuId + "&" + querystring.stringify(url.parse(req.url, true).query));
+    app.get('/api/QuickConfirmOrder/:OrderId/:QuickCode', function (req, res) {
+        var requestUrl = encodeURI("/?actionid=4013&" +"OrderId=" + req.params.OrderId + "&"+"QuickCode=" + req.params.QuickCode + "&" + querystring.stringify(url.parse(req.url, true).query));
         common.SendRequest(requestUrl, 'get', req, res, function(receiveData){
             res.end(receiveData);
         });
